@@ -1,31 +1,36 @@
 import './App.css';
 
 const dogs = [
-  { name: 'Buddy', breed: 'Golden Retriever', location: 'New York, NY', image: 'https://via.placeholder.com/150' },
-  { name: 'Max', breed: 'German Shepherd', location: 'Los Angeles, CA', image: 'https://via.placeholder.com/150' },
-  { name: 'Charlie', breed: 'Labrador Retriever', location: 'Chicago, IL', image: 'https://via.placeholder.com/150' },
-  { name: 'Luna', breed: 'Beagle', location: 'Houston, TX', image: 'https://via.placeholder.com/150' },
-  { name: 'Daisy', breed: 'Standard Poodle', location: 'Miami, FL', image: 'https://via.placeholder.com/150' },
-  { name: 'Rocky', breed: 'Siberian Husky', location: 'Denver, CO', image: 'https://via.placeholder.com/150' },
-  { name: 'Bella', breed: 'Boxer', location: 'Seattle, WA', image: 'https://via.placeholder.com/150' },
-  { name: 'Oscar', breed: 'Dachshund', location: 'Boston, MA', image: 'https://via.placeholder.com/150' },
+  { name: 'Buddy', breed: 'Golden Retriever', location: 'New York, NY' },
+  { name: 'Max', breed: 'German Shepherd', location: 'Los Angeles, CA' },
+  { name: 'Charlie', breed: 'Labrador Retriever', location: 'Chicago, IL' },
+  { name: 'Luna', breed: 'Beagle', location: 'Houston, TX' },
+  { name: 'Daisy', breed: 'Standard Poodle', location: 'Miami, FL' },
+  { name: 'Rocky', breed: 'Siberian Husky', location: 'Denver, CO' },
+  { name: 'Bella', breed: 'Boxer', location: 'Seattle, WA' },
+  { name: 'Oscar', breed: 'Dachshund', location: 'Boston, MA' },
 ];
 
 function App() {
   return (
     <div className="app-container">
-      <h1>Adopt a Pet</h1>
-      <div className="dogs-container">
+      <header className="banner">Fur Ever Home</header>
+
+      <div className="cards-container">
         {dogs.map((dog, index) => (
-          <div key={index} className="dog-card">
-            <img src={dog.image} alt={`${dog.name}`} className="dog-image" />
+          <div key={index} className="card">
+            <div className="image-placeholder">150 x 150</div>
             <h3>{dog.name}</h3>
             <p><strong>Breed:</strong> {dog.breed}</p>
             <p><strong>Location:</strong> {dog.location}</p>
-            <button className="adopt-btn">Adopt Me</button>
+            <button className="adopt-button">Adopt Me</button>
           </div>
         ))}
       </div>
+
+      <footer className="footer">
+        © 2024 Fur Ever Home. All rights reserved.
+      </footer>
     </div>
   );
 }
