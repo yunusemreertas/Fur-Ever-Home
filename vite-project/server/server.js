@@ -1,8 +1,10 @@
 // server/server.js
-const express = require('express');
-const cors = require('cors');
-const sequelize = require('./config/database');
-require('dotenv').config();  // Load environment variables
+import express from 'express';
+import cors from 'cors';
+import sequelize from './config/database.js';  // Add .js extension for ES module
+import dotenv from 'dotenv';  // ES module import
+
+dotenv.config();  // Load environment variables
 
 const app = express();
 
@@ -11,12 +13,12 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-const authRoutes = require('./routes/authRoutes');
+import authRoutes from './routes/authRoutes.js';  // Add .js extension for ES module
 app.use('/api/auth', authRoutes);
 
 // Sync Sequelize models and start the server
 sequelize.sync().then(() => {
-  const PORT = process.env.PORT || 3001;  // Optionally use the PORT from .env
+  const PORT = process.env.PORT || 3001;
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
