@@ -1,14 +1,27 @@
 import { useParams, Link } from 'react-router-dom';
-import './App.css'; // Optional: Reuse styles if needed
+import React, { useState } from 'react'; // Import React's useState
+import './App.css'; // Reuse styles so it all looks the same
 
 function ContactForm() {
   const { name } = useParams(); // Get the dog's name from the route parameters
+  const [showPopup, setShowPopup] = useState(false); // Track popup visibility
+
+  // Handle form submission
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent form from refreshing the page
+    setShowPopup(true); // Show the popup
+  };
+
+  // Close the popup
+  const handleClosePopup = () => {
+    setShowPopup(false); // Hide the popup
+  };
 
   return (
     <div className="contact-form-container">
       <h2>Adopt {name}</h2>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         {/* First Name */}
         <div className="form-group">
           <label htmlFor="firstName">First Name:</label>
@@ -73,9 +86,19 @@ function ContactForm() {
       <Link to="/">
         <button className="back-button">Back to Home</button>
       </Link>
+
+      {/* Popup Modal */}
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <h3>Submission Successful!</h3>
+            <p>Thank you for your interest in adopting {name}. We will get back to you soon! 😊🐶</p>
+            <button onClick={handleClosePopup}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 export default ContactForm;
-
