@@ -1,21 +1,25 @@
 // server/server.js
 const express = require('express');
+const cors = require('cors');
 const sequelize = require('./config/database');
-const authRoutes = require('./routes/authRoutes');
-const dotenv = require('dotenv');
-dotenv.config(); // Load environment variables from .env
+require('dotenv').config();  // Load environment variables
 
 const app = express();
 
-// Middleware to parse JSON bodies
+// Middleware
+app.use(cors());
 app.use(express.json());
 
 // Routes
+const authRoutes = require('./routes/authRoutes');
 app.use('/api/auth', authRoutes);
 
 // Sync Sequelize models and start the server
 sequelize.sync().then(() => {
-  app.listen(3001, () => {
-    console.log('Server is running on port 3001');
+  const PORT = process.env.PORT || 3001;  // Optionally use the PORT from .env
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
   });
+}).catch(err => {
+  console.error('Failed to sync database:', err);
 });

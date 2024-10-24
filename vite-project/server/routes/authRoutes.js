@@ -3,9 +3,11 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+require('dotenv').config();  // Load environment variables
+
 const router = express.Router();
 
-// Register/Login route (User creation)
+// Register route (for user registration)
 router.post('/register', async (req, res) => {
   const { username, password } = req.body;
   
@@ -18,7 +20,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Login route
+// Login route (for user authentication)
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
   
@@ -27,9 +29,13 @@ router.post('/login', async (req, res) => {
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
-    
+
     // Create JWT token
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign(
+      { id: user.id, username: user.username },
+      process.env.JWT_SECRET,  // Use the secret from the .env file
+      { expiresIn: '1h' }      // Set the token expiration time
+    );
     res.json({ token });
   } catch (error) {
     res.status(500).json({ error: 'Login failed.' });
@@ -38,8 +44,7 @@ router.post('/login', async (req, res) => {
 
 // Logout route
 router.post('/logout', (req, res) => {
-  // To logout, you simply expire the token on the client-side.
-  res.json({ message: 'Logged out' });
+  res.json({ message: 'Logged out successfully' });
 });
 
 module.exports = router;
