@@ -1,19 +1,18 @@
-// This file defines a simple User model with two fields: username and password.
+// server/models/user.js
+import { DataTypes } from 'sequelize';
+import sequelize from '../config/database.js';  // ES module import
 
-
-const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); 
-
+// Define the User model
 const User = sequelize.define('User', {
   username: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true
+    unique: true,
   },
   password: {
     type: DataTypes.STRING,
-    allowNull: false
-  }
+    allowNull: false,
+  },
 });
 
-module.exports = User;
+export default User;  // ES module export
