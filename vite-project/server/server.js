@@ -1,8 +1,8 @@
-// server/server.js
 import express from 'express';
 import cors from 'cors';
-import sequelize from './config/database.js';  // Add .js extension for ES module
-import dotenv from 'dotenv';  // ES module import
+import sequelize from './config/database.js';
+import dotenv from 'dotenv';
+import authRoutes from './routes/authRoutes.js';  // Import the auth routes
 
 dotenv.config();  // Load environment variables
 
@@ -12,9 +12,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Routes
-import authRoutes from './routes/authRoutes.js';  // Add .js extension for ES module
-app.use('/api/auth', authRoutes);
+// Register the auth routes
+app.use('/api/auth', authRoutes);  // Register the routes under /api/auth
 
 // Sync Sequelize models and start the server
 sequelize.sync().then(() => {
