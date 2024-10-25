@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import ContactForm from './Contactform'; // this is the new contact form component
+import ContactForm from './Contactform';
+import logo from './assets/logo.png'; // Add this import
 
 const dogs = [
   { name: 'Buddy', breed: 'Golden Retriever', location: 'New York, NY' },
@@ -17,7 +18,14 @@ function App() {
   return (
     <Router>
       <div className="app-container">
-        <header className="banner">Fur Ever Home</header>
+        <header className="banner">
+          <div className="banner-content">
+            <Link to="/" className="logo-link">
+              <img src={logo} alt="Fur Ever Home Logo" className="logo" />
+            </Link>
+            <h1 className="banner-title">Fur Ever Home</h1>
+          </div>
+        </header>
 
         <Routes>
           {/* Route for the home page displaying dogs */}
@@ -31,7 +39,6 @@ function App() {
                     <h3>{dog.name}</h3>
                     <p><strong>Breed:</strong> {dog.breed}</p>
                     <p><strong>Location:</strong> {dog.location}</p>
-                    {/* Link to the contact form with the dog's name in the URL */}
                     <Link to={`/contact/${dog.name}`} className="adopt-button">
                       <button>Adopt Me</button>
                     </Link>
