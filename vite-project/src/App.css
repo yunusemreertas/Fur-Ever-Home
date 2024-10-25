@@ -19,11 +19,47 @@ body {
   text-align: center;
   background-color: #28a745;
   color: white;
-  padding: 20px 0;
-  font-size: 2rem;
+  padding: 5px 0;
+  font-size: 1.25rem; /* Reduced from 1.75rem */
   font-weight: bold;
   position: sticky;
   top: 0;
+}
+
+.banner-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 40px;
+}
+
+.logo {
+  height: 60px;
+  
+}
+
+/* Update mobile styles */
+@media (max-width: 600px) {
+  .banner {
+    font-size: 1rem; /* Reduced from 1.25rem */
+  }
+  
+  .banner-content {
+    height: auto;
+    padding: 0.25rem;
+  }
+  
+  .logo {
+    height: 35px;
+  }
+}
+
+.banner-title {
+  margin: 0;
+  color: white;
 }
 
 /* Cards container */
@@ -37,6 +73,7 @@ body {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  padding: 20px;
 }
 
 /* Individual Card Styling */
@@ -61,7 +98,7 @@ body {
   color: #777;
 }
 
-/* Adopt button - updated styling */
+/* Adopt button */
 .adopt-button,
 .adopt-button * {
   background-color: #28a745;
@@ -85,14 +122,6 @@ body {
 .adopt-button:hover,
 .adopt-button:hover * {
   background-color: #218838;
-}
-
-/* To ensure no white backgrounds on any nested elements */
-.adopt-button span,
-.adopt-button div {
-  background-color: inherit;
-  padding: 0;
-  margin: 0;
 }
 
 /* Footer */
@@ -140,7 +169,7 @@ body {
   border-radius: 5px;
 }
 
-/* Modified Checkbox Styling */
+/* Checkbox Group */
 .checkbox-group {
   display: flex;
   align-items: center;
@@ -165,7 +194,7 @@ body {
   margin-left: 0;
 }
 
-/* Additional Questions Section */
+/* Adoption Form */
 .adoption-form {
   display: flex;
   flex-direction: column;
@@ -204,6 +233,7 @@ body {
   color: white;
 }
 
+/* Popup */
 .popup {
   position: fixed;
   top: 0;
@@ -226,4 +256,36 @@ body {
 .popup-content button {
   margin-top: 10px;
   padding: 10px 20px;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .banner-content {
+    height: auto;
+    padding: 0.25rem;
+  }
+  
+  .logo {
+    height: 35px;
+  }
+  
+  .banner {
+    font-size: 1.25rem;
+  }
 }
