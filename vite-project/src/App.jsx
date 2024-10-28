@@ -1,7 +1,8 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useState } from 'react';
 import ContactForm from './Contactform';
-import logo from './assets/logo.png'; // Add this import
+import logo from './assets/logo.png';
 
 const dogs = [
   { name: 'Buddy', breed: 'Golden Retriever', location: 'New York, NY' },
@@ -15,20 +16,63 @@ const dogs = [
 ];
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    // Add your login logic here
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    // Add your logout logic here
+  };
+
+  const handleRegister = () => {
+    // Add your registration logic here
+  };
+
   return (
     <Router>
       <div className="app-container">
         <header className="banner">
           <div className="banner-content">
-            <Link to="/" className="logo-link">
-              <img src={logo} alt="Fur Ever Home Logo" className="logo" />
-            </Link>
-            <h1 className="banner-title">Fur Ever Home</h1>
+            <div className="left-section">
+              <Link to="/" className="logo-link">
+                <img src={logo} alt="Fur Ever Home Logo" className="logo" />
+              </Link>
+              <h1 className="banner-title">Fur Ever Home</h1>
+            </div>
+            <div className="auth-buttons">
+              {!isLoggedIn ? (
+                <>
+                  <button
+                    onClick={handleLogin}
+                    className="auth-button login-button"
+                  >
+                    Login
+                  </button>
+                  <button
+                    onClick={handleRegister}
+                    className="auth-button login-button"
+                  >
+                    Register
+                  </button>
+                </>
+              ) : (
+                <button
+                  onClick={handleLogout}
+                  className="auth-button logout-button"
+                >
+                  Logout
+                </button>
+              )}
+            </div>
           </div>
         </header>
 
         <Routes>
-          {/* Route for the home page displaying dogs */}
+          {/* Route for the home page displaying dogs */} 
           <Route
             path="/"
             element={

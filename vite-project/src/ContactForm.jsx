@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
-import React, { useState } from 'react'; // Import React's useState
-import './App.css'; // Reuse styles so it all looks the same
+import React, { useState } from 'react'; 
+import './App.css'; 
 
 function ContactForm() {
   const { name } = useParams(); // Get the dog's name from the route parameters
