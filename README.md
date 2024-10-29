@@ -1,4 +1,4 @@
-# FureverHome
+# Fur Ever Home
 
 ## Website Link
 
@@ -6,7 +6,7 @@ Coming soon ...
 
 ## Description
 
-FureverHome is a full-stack web application that facilitates the pet adoption process by connecting potential pet adopters with available animals. Users can browse pets, view details, and contact pet owners to arrange adoptions. The app is built with a responsive, user-friendly interface and includes secure user authentication to enhance user experience and data security.
+Fur Ever Home is a full-stack web application that facilitates the pet adoption process by connecting potential pet adopters with available animals. Users can browse pets, view details, and contact pet owners to arrange adoptions. The app is built with a responsive, user-friendly interface and includes secure user authentication to enhance user experience and data security.
 
 ## Installation
 
@@ -60,4 +60,4 @@ Node.js Documentation - Node.js backend runtime.
 
 ## License
 
-FureverHome is a collaborative project. All rights reserved © 2024.
+Fur Ever Home is a collaborative project. All rights reserved © 2024.
