@@ -8,10 +8,6 @@ Coming soon ...
 
 Fur Ever Home is a full-stack web application that facilitates the pet adoption process by connecting potential pet adopters with available animals. Users can browse pets, view details, and contact pet owners to arrange adoptions. The app is built with a responsive, user-friendly interface and includes secure user authentication to enhance user experience and data security.
 
-## Installation
-
-Coming soon ...
-
 ## Usage
 
 Register and Login:
