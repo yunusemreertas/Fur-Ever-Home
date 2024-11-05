@@ -25,7 +25,7 @@ Send inquiries to pet shelters to arrange adoptions and meet the animals in pers
 
 ## Credits
 
-This project was developed by: Yunus Emre Ertas, Gianna D`Aconti, Angel Sanchez
+This project was developed by: Yunus Emre Ertas, Gianna D`Aconti, Angel Sanchez.
 
 ## Technologies Used
 
